@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agnoritus Calculator — Scientific Calculator</title>
+<meta name="description" content="Agnoritus: a precise, elegant scientific calculator with DEG/RAD, history and full keyboard support.">
+<meta name="theme-color" content="#cfe3fc">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b2a6b'/%3E%3Cpath d='M32 14 14 50h9l3-8h12l3 8h9L32 14Zm0 15 4 8h-8l4-8Z' fill='%23bcd9fb'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('agn-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<main class="page">
+  <header class="brand">
+    <h1>Agnoritus</h1>
+    <p>Scientific Calculator</p>
+  </header>
+
+  <section class="calc" aria-label="Scientific calculator">
+    <div class="bar">
+      <div class="seg" role="group" aria-label="Angle unit">
+        <button type="button" data-mode="deg" aria-pressed="true">DEG</button>
+        <button type="button" data-mode="rad" aria-pressed="false">RAD</button>
+      </div>
+      <div class="tools">
+        <button type="button" class="tool" id="copy">Copy</button>
+        <button type="button" class="tool" id="hist-btn" aria-expanded="false" aria-controls="history">History</button>
+        <button type="button" class="tool round" id="theme" aria-label="Toggle dark theme">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="display" aria-live="polite">
+      <div class="sub" id="sub"></div>
+      <div class="main" id="main">0</div>
+    </div>
+
+    <div class="keys" id="keys"></div>
+
+    <aside class="history" id="history" aria-label="Calculation history" hidden>
+      <div class="history-head">
+        <span>History</span>
+        <button type="button" class="tool" id="hist-clear">Clear all</button>
+      </div>
+      <ul id="hist-list"></ul>
+    </aside>
+  </section>
+</main>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
